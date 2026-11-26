@@ -34,6 +34,7 @@
 #include "lwip/sockets.h"
 #include "driver/twai.h"
 #include "ver.h"
+#include <vittil.h>
 #include "types.h"
 #include "config_server.h"
 #include "realdash.h"
@@ -367,6 +368,7 @@ static void can_rx_task(void *pvParameters)
 
 void app_main(void)
 {
+	vittil_start();
 	dev_status_init();
 	dev_status_set_bits(DEV_AWAKE_BIT);
     ESP_ERROR_CHECK(nvs_flash_init());
